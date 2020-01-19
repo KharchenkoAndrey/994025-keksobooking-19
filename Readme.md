@@ -1,7 +1,7 @@
 # Личный проект «Кексобукинг» [![Build status][travis-image]][travis-url]
 
 * Студент: [Андрей Харченко](https://up.htmlacademy.ru/javascript/19/user/994025).
-* Наставник: `Неизвестно`.
+* Наставник: [Саяжан Онласын](https://htmlacademy.ru/profile/crepiks).
 
 ---
 
