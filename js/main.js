@@ -12,6 +12,7 @@ var appartmentPhoto = [
   'http://o0.github.io/assets/images/tokyo/hotel2.jpg',
   'http://o0.github.io/assets/images/tokyo/hotel3.jpg'
 ];
+var avatarNumbers = ['01', '02', '03', '04', '05', '06', '07', '08'];
 var similarPin = document.querySelector('#pin').content.querySelector('.map__pin');
 var similarMapPins = document.querySelector('.map__pins');
 
@@ -27,10 +28,10 @@ var getRandomRange = function (min, max) {
 var ads = [
   {
     author: {
-      avatar: 'img/avatars/user{{xx}}.png'
+      avatar: 'img/avatars/user02.png'
     },
     offer: {
-      title: '{{заголовок предложения}}',
+      title: 'заголовок объявления',
       adress: '{{location.x, location.y}}',
       price: 0,
       type: getRandom(appartmentType),
@@ -43,40 +44,25 @@ var ads = [
       photos: getRandom(appartmentPhoto)
     },
     location: {
-      x: 200,
-      y: getRandomRange(130, 630)
+      x: 'left: ' + 200 + 'px',
+      y: 'top: ' + getRandomRange(130, 630) + 'px'
     }
-  }
-
-  /* {
-    author: {
-      avatar: 'img/avatars/user{{xx}}.png'
-    },
-    offer: {
-      title: '{{заголовок предложения}}',
-      adress: 'location.x, location.y',
-      price: 20000,
-      type: appartmentType[2],
-      rooms: 2,
-      guests: 50,
-      checkin: checkInTime[0],
-      checkout: checkOutTime[2],
-      features: featureList[4],
-      description: '{{описание}}',
-      photos: appartmentPhoto[1]
-    },
-    location: {
-      x: 250,
-      y: 350
-    }
-  }, */
+  },
 ];
+
+var renderPin = function (ads) {
+  var itemPin = similarPin.cloneNode(true);
+  var imgPin = itemPin.querySelector('img');
+
+  imgPin.src = ads.author.avatar;
+  imgPin.alt = '{{заголовок объявления}}';
+  itemPin.style = location.x; location.y;
+
+  return itemPin;
+};
 
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < ads.length; i++) {
-  fragment.appendChild(similarPin);
+  fragment.appendChild(renderPin(ads[i]));
 }
 similarMapPins.appendChild(fragment);
-
-
-// console.log(getRandomRange(130, 630));
