@@ -17,7 +17,7 @@ var similarPin = document.querySelector('#pin').content.querySelector('.map__pin
 var similarMapPins = document.querySelector('.map__pins');
 
 var getRandom = function (arr) {
-  var random = Math.round(Math.random() * (arr.length - 1));
+  var random = Math.floor(Math.random() * (arr.length));
   return arr[random];
 };
 
@@ -28,7 +28,7 @@ var getRandomRange = function (min, max) {
 var ads = [
   {
     author: {
-      avatar: 'img/avatars/user02.png'
+      avatar: ''
     },
     offer: {
       title: 'заголовок объявления',
@@ -44,8 +44,162 @@ var ads = [
       photos: getRandom(appartmentPhoto)
     },
     location: {
-      x: 'left: ' + 200 + 'px',
-      y: 'top: ' + getRandomRange(130, 630) + 'px'
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
+    }
+  },
+  {
+    author: {
+      avatar: ''
+    },
+    offer: {
+      title: 'заголовок объявления',
+      adress: '{{location.x, location.y}}',
+      price: 0,
+      type: getRandom(appartmentType),
+      rooms: 0,
+      guests: 0,
+      checkin: getRandom(checkInTime),
+      checkout: getRandom(checkOutTime),
+      features: getRandom(featureList),
+      description: '{{описание}}',
+      photos: getRandom(appartmentPhoto)
+    },
+    location: {
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
+    }
+  },
+  {
+    author: {
+      avatar: ''
+    },
+    offer: {
+      title: 'заголовок объявления',
+      adress: '{{location.x, location.y}}',
+      price: 0,
+      type: getRandom(appartmentType),
+      rooms: 0,
+      guests: 0,
+      checkin: getRandom(checkInTime),
+      checkout: getRandom(checkOutTime),
+      features: getRandom(featureList),
+      description: '{{описание}}',
+      photos: getRandom(appartmentPhoto)
+    },
+    location: {
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
+    }
+  },
+  {
+    author: {
+      avatar: ''
+    },
+    offer: {
+      title: 'заголовок объявления',
+      adress: '{{location.x, location.y}}',
+      price: 0,
+      type: getRandom(appartmentType),
+      rooms: 0,
+      guests: 0,
+      checkin: getRandom(checkInTime),
+      checkout: getRandom(checkOutTime),
+      features: getRandom(featureList),
+      description: '{{описание}}',
+      photos: getRandom(appartmentPhoto)
+    },
+    location: {
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
+    }
+  },
+  {
+    author: {
+      avatar: ''
+    },
+    offer: {
+      title: 'заголовок объявления',
+      adress: '{{location.x, location.y}}',
+      price: 0,
+      type: getRandom(appartmentType),
+      rooms: 0,
+      guests: 0,
+      checkin: getRandom(checkInTime),
+      checkout: getRandom(checkOutTime),
+      features: getRandom(featureList),
+      description: '{{описание}}',
+      photos: getRandom(appartmentPhoto)
+    },
+    location: {
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
+    }
+  },
+  {
+    author: {
+      avatar: ''
+    },
+    offer: {
+      title: 'заголовок объявления',
+      adress: '{{location.x, location.y}}',
+      price: 0,
+      type: getRandom(appartmentType),
+      rooms: 0,
+      guests: 0,
+      checkin: getRandom(checkInTime),
+      checkout: getRandom(checkOutTime),
+      features: getRandom(featureList),
+      description: '{{описание}}',
+      photos: getRandom(appartmentPhoto)
+    },
+    location: {
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
+    }
+  },
+  {
+    author: {
+      avatar: ''
+    },
+    offer: {
+      title: 'заголовок объявления',
+      adress: '{{location.x, location.y}}',
+      price: 0,
+      type: getRandom(appartmentType),
+      rooms: 0,
+      guests: 0,
+      checkin: getRandom(checkInTime),
+      checkout: getRandom(checkOutTime),
+      features: getRandom(featureList),
+      description: '{{описание}}',
+      photos: getRandom(appartmentPhoto)
+    },
+    location: {
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
+    }
+  },
+  {
+    author: {
+      avatar: ''
+    },
+    offer: {
+      title: 'заголовок объявления',
+      adress: '{{location.x, location.y}}',
+      price: 0,
+      type: getRandom(appartmentType),
+      rooms: 0,
+      guests: 0,
+      checkin: getRandom(checkInTime),
+      checkout: getRandom(checkOutTime),
+      features: getRandom(featureList),
+      description: '{{описание}}',
+      photos: getRandom(appartmentPhoto)
+    },
+    location: {
+      x: getRandomRange(0, 1200),
+      y: getRandomRange(130, 630)
     }
   },
 ];
@@ -56,13 +210,15 @@ var renderPin = function (ads) {
 
   imgPin.src = ads.author.avatar;
   imgPin.alt = '{{заголовок объявления}}';
-  itemPin.style = location.x; location.y;
+  itemPin.style.left = ads.location.x + 'px';
+  itemPin.style.top = ads.location.y + 'px';
 
   return itemPin;
 };
 
 var fragment = document.createDocumentFragment();
 for (var i = 0; i < ads.length; i++) {
+  ads[i].author.avatar = 'img/avatars/user' + avatarNumbers[i] + '.png';
   fragment.appendChild(renderPin(ads[i]));
 }
 similarMapPins.appendChild(fragment);
