@@ -82,9 +82,21 @@ var activeMode = function () {
     fragment.appendChild(renderPin(ads[i]));
   }
   similarMapPins.appendChild(fragment);
-  form.classList.remove('ad-form--disabled');
-  showMap.classList.remove('map--faded');
-  formFeatures.removeAttribute('disabled', 'disabled');
+
+  /*form.classList.remove('ad-form--disabled');
+  showMap.classList.remove('map--faded');*/
+  //formFeatures.removeAttribute('disabled', 'disabled')
+
+
+
+for (var i = 0; i < formFieldset.length; i++) {
+  formFieldset[i].setAttribute('disabled', 'disabled');
+}
+
+for (var i = 0; i < formSelect.length; i++) {
+  formSelect[i].setAttribute('disabled', 'disabled');
+}
+
   for (var i = 0; i < formFieldset.length; i++) {
     formFieldset[i].removeAttribute('disabled', 'disabled');
   }
@@ -104,14 +116,6 @@ mapPin.addEventListener('mousedown', function (evt) {
     activeMode();
   }
 });
-
-for (var i = 0; i < formFieldset.length; i++) {
-  formFieldset[i].setAttribute('disabled', 'disabled');
-}
-
-for (var i = 0; i < formSelect.length; i++) {
-  formSelect[i].setAttribute('disabled', 'disabled');
-}
 
 formHeader.setAttribute('disabled', 'disabled');
 formFeatures.setAttribute('disabled', 'disabled');
