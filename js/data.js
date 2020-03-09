@@ -23,18 +23,18 @@
           title: 'заголовок объявления',
           adress: '600, 350',
           price: 0,
-          type: utils.getRandom(appartmentType),
+          type: window.utils.getRandom(appartmentType),
           rooms: 0,
           guests: 0,
-          checkin: utils.getRandom(checkInTime),
-          checkout: utils.getRandom(checkOutTime),
-          features: utils.getRandom(featureList),
+          checkin: window.utils.getRandom(checkInTime),
+          checkout: window.utils.getRandom(checkOutTime),
+          features: window.utils.getRandom(featureList),
           description: '{{описание}}',
-          photos: utils.getRandom(appartmentPhoto)
+          photos: window.utils.getRandom(appartmentPhoto)
         },
         location: {
-          x: utils.getRandomRange(0, 1120),
-          y: utils.getRandomRange(130, 630)
+          x: window.utils.getRandomRange(0, 1120),
+          y: window.utils.getRandomRange(130, 630)
         }
       };
       ads.push(ad);
@@ -48,4 +48,4 @@
   };
 })();
 
-data.getAds(8);
+window.data.getAds(8);
