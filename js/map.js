@@ -1,6 +1,6 @@
 'use strict';
 
-(function () {
+window.showPin = function () {
   var avatarNumbers = ['01', '02', '03', '04', '05', '06', '07', '08'];
   var similarPin = document.querySelector('#pin').content.querySelector('.map__pin');
   var similarMapPins = document.querySelector('.map__pins');
@@ -16,6 +16,7 @@
 
     return itemPin;
   };
+
   var fragment = document.createDocumentFragment();
 
   for (var i = 0; i < window.data.ads.length; i++) {
@@ -24,6 +25,4 @@
     fragment.appendChild(renderPin(window.data.ads[i]));
   }
   similarMapPins.appendChild(fragment);
-})();
-
-
+};

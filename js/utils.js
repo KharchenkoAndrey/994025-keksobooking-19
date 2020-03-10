@@ -22,6 +22,7 @@
     if (evt.key === 'Enter') {
       showMap.classList.remove('map--faded');
       form.classList.remove('ad-form--disabled');
+      window.showPin();
     }
   });
 
@@ -29,6 +30,7 @@
     if (evt.which === 1) {
       showMap.classList.remove('map--faded');
       form.classList.remove('ad-form--disabled');
+      window.showPin();
     }
   });
 })();
