@@ -1,4 +1,4 @@
-'use strict';
+/*'use strict';
 
 (function () {
 
@@ -48,4 +48,5 @@
   };
 })();
 
-window.data.getAds(8);
+window.data.getAds(8);*/
+

@@ -32,3 +32,4 @@
   }
   rooms.addEventListener('change', roomsGuests(rooms, guests));
 })();
+
